@@ -2,31 +2,100 @@
 <html lang="en-us">
   <head>
     <meta charset="UTF-8">
-    <title>My First Function</title>
+    <title>Psychic Test</title>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
   </head>
   <body>
 
 
-
-<!-- Computer chooses random letter from alphabet/array.
-Player tries to guess the letter that the computer chose.
-If the player guesses correctly then the "Wins" increases by one.
-If the player does not guess the correct letter, the "Losses" increases by one, and the "Guesses Left" decreases by one. The letter guessed gets recorded in the screen.
--->
+ <div class="container">
+    <div class="row">
+      <div class="col-md-8">
 
 
- <h1>Guess what letter I'm thinking of</h1>
+		<h1>DO YOU HAVE PSYCHIC ABILITIES?</h1>
 
-<h2>Wins: (# of times the user has guessed the letter correctly)</h2>
-<h2>Losses: (# of times the user has failed to guess the letter correctly after exhausting all guesses)</h2>
-<h2>Guesses Left: (# of guesses left. This will update)</h2>
-<h2>Your Guesses So Far: (the specific letters that the user typed. Display these until the user either wins or loses.)</h2>
+		 <h2>Let's find out.  Guess what letter I'm thinking of...</h2>
+
+		 	<h3>You have entered: <span id="user-text"><strong></strong></span></h3>
+
+            <h3>Wins: <span id="user-wins"><strong></strong></span></h3>
+            <h3>Losses (# of times the user has failed to guess the letter correctly after exhausting all guesses): <span id="computer-wins"><strong></strong></span></h3>
+            <br>
+            <h3>Guesses Left: <span id="guesses-left"><strong></strong></span></h3>
+            <h3>Your Guesses So Far: <span id="guesses-list"><strong></strong></span></h3>
+
+
+	</div>
+        </div>
+         	</div>
 
 
 
+<script type="text/javascript">
 
 
 
+ // Let's start by grabbing a reference to the <span> below.
+      var userText = document.getElementById("user-text");
+      var userWins = document.getElementById("user-wins");
+      var losses = document.getElementById("computer-wins");
+      var guessesLeft = document.getElementById("guesses-left");
+      var guessesList = document.getElementById("guesses-list");
+     
 
-When the player wins, increase the Wins counter and start the game over again (without refreshing the page).
-When the player loses, increase the Losses counter and restart the game without a page refresh (just like when the user wins).
+ // Next, we give JavaScript a function to execute when onkeyup event fires.
+      
+      document.onkeyup = function(event) {
+        userText.textContent = event.key;
+
+
+//Computer chooses random letter from alphabet string.
+
+		var emptyString = "";
+		var alphabet = "abcdefghijklmnopqrstuvwxyz";
+		var randomLetter = alphabet[Math.floor(Math.random() * alphabet.length)];
+
+		for (var i = 0; i < 1; i++) {
+		  emptyString += randomLetter;
+		} 
+		console.log(emptyString);
+  
+
+
+//Player tries to guess the letter that the computer chose.
+
+		if (parseInt(userText) === randomLetter) {
+
+  		document.write('<p>You guessed the letter!</p>');
+  
+}  
+
+
+		else {
+
+
+ 		document.write('<p>Sorry. The letter was ' + randomLetter + '</p>');
+
+}
+
+
+
+//If the player guesses correctly then the "Wins" increases by one.
+//If the player does not guess the correct letter, the "Losses" increases by one, and the "Guesses Left" decreases by one. The letter guessed gets recorded in the screen.
+
+
+var	userWin = 0;
+var userLoss = 0;
+var userGuessLeft = 0;
+var guessesMade = 0;
+
+</script>
+
+
+</body>
+</html>
+
+
+
