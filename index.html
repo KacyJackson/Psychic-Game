@@ -9,23 +9,23 @@
   <body>
 
 
- <div class="container">
+ <div id= "user-view" class="container">
     <div class="row">
       <div class="col-md-8">
 
 
 
-	<h1>DO YOU HAVE PSYCHIC ABILITIES?</h1>
+		<h1>DO YOU HAVE PSYCHIC ABILITIES?</h1>
 
-	<h2>Let's find out.  Guess what letter I'm thinking of...</h2>
+		 <h2>Let's find out.  Guess what letter I'm thinking of...</h2>
 
-	    <h3>You have entered: <span id="user-text"><strong></strong></span></h3>
+		 	      <h3>You have entered: <span id="user-text"><strong></strong></span></h3>
             <br>
             <h3>Guesses Left: <span id="guesses-left"><strong></strong></span></h3>
             <br>
             <br>
             <h3>Your Guesses So Far: <span id="guesses-made"><strong></strong></span></h3>
-	    <br>
+            <br>
             <h3> Did you win? <span id= "status"> </h3>
 
 
@@ -35,75 +35,7 @@
 
 
 
-<script type="text/javascript">
-
-// Create the scoreboard
-
-      var guessesLeft = 5;
-      var lettersGuessed = []     
-
- // Next, we give JavaScript a function to execute when onkeyup event fires.
-      
-      document.onkeyup = function(event) {
-      var userText = event.key;
-
-      console.log(userText);
-
-      guessesLeft = guessesLeft-1;
-      document.getElementById("guesses-left").innerHTML = guessesLeft;
-      console.log(guessesLeft);
-
-  
-      lettersGuessed.push(userText);
-
-     
-
-       document.getElementById("guesses-made").innerHTML = lettersGuessed.join(", ");
-       console.log(lettersGuessed);
-
-      
-//Computer chooses random letter from alphabet string.
-
-		var emptyString = "";
-		var alphabet = "abcdefghijklmnopqrstuvwxyz";
-		var randomLetter = alphabet[Math.floor(Math.random() * alphabet.length)];
-
-		for (var i = 0; i < 1; i++) {
-		  emptyString += randomLetter;
-		
-		console.log(emptyString);
-  
-}
-
-//Player tries to guess the letter that the computer chose.
-
-		if (parseInt(userText) === randomLetter) {
-
-  		document.getElementById("user-text").innerHTML = userText;
-      document.getElementById("status").innerHTML = "Yes";
-
-  
-}  
-
-
-		else {
-
-
- 		 document.getElementById("user-text").innerHTML = userText;
-     document.getElementById("status").innerHTML = "No";
-
-   
-
-
-}
-
-
-
-
-
-}
-
-</script>
+<script src="game.js"></script>
 
 
 </body>
